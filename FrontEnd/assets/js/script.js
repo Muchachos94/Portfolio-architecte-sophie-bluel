@@ -13,7 +13,6 @@ async function fetchWorks() {
 
 function displayWorks(works) {
   const gallery = document.querySelector(".gallery");
-  gallery.innerHTML = ""; // Nettoyer la galerie
 
   works.forEach(work => {
     const figure = document.createElement("figure");
@@ -32,6 +31,7 @@ function displayWorks(works) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const works = await fetchWorks();
+    console.log(works);
   if (works) {
     displayWorks(works);
   }
