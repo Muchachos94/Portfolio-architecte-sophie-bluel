@@ -14,6 +14,8 @@ async function fetchWorks() {
 function displayWorks(works) {
   const gallery = document.querySelector(".gallery");
 
+  gallery.innerHTML = ""; //  On vide la galerie
+
   works.forEach(work => {
     const figure = document.createElement("figure");
     const img = document.createElement("img");
@@ -30,9 +32,11 @@ function displayWorks(works) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const works = await fetchWorks();
-    console.log(works);
-  if (works) {
-    displayWorks(works);
+  const works = await fetchWorks(); // récupère tous les projets
+  const categories = await fetchCategories(); // récupère les catégories
+
+  if (works && categories) {
+    displayWorks(works); // affiche tous les projets au départ
+    displayCategories(categories, works); // crée les boutons et active le tri
   }
 });
