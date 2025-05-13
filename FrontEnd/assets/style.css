@@ -52,6 +52,7 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color: #fffef8;
 }
 header {
 	display: flex;
@@ -88,11 +89,19 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-
+	gap: 25px;
+	cursor: pointer;
+	margin-right: 40px;
 }
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
+}
+
+.instagram {
+	width: 22px; 
+	display: flex;
+	cursor: pointer;
 }
 
 li:hover {
@@ -101,6 +110,7 @@ li:hover {
 #introduction {
 	display: flex;
 	align-items: center;
+	padding: 42px;
 }
 #introduction figure {
 	flex: 1
@@ -119,26 +129,60 @@ li:hover {
 }
 
 #introduction p {
-	margin-bottom: 0.5em;
+	margin-bottom: 1em;
+	width: 404px;
+	color: #3D3D3D;
 }
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+#categories {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 40px;
+}
+
+#categories button {
+	padding: 7px 20px;
+	border: 1px solid #1D6154;
+	border-radius: 20px;
+	background-color: #fffef8;
+	cursor: pointer;
+	font-family: 'Syne';
+	font-size: 16px;
+	color: #1D6154;
+}
+
+#categories button.active {
+	background-color: #1D6154;
+	color: white;
+}
+
 .gallery {
-	width: 100%;
+	width: 78%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
+	padding: 0px 90px 0px 90px;
 }
 
 .gallery img {
 	width: 100%;
 
 }
+
+form input#envoyer {
+	width: 179px ;
+	height: 36px ;
+	font-size: 14px;
+}
+
 #contact {
-	width: 50%;
+	width: 33%;
 margin: auto;
 }
 #contact > * {
@@ -150,13 +194,14 @@ margin: auto;
 }
 #contact form {
 	text-align: left;
-	margin-top:30px;
+	margin-top: 12px;
 	display: flex;
 	flex-direction: column;
 }
 
 #contact input {
 	height: 50px;
+	width: 379px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -165,6 +210,7 @@ margin: auto;
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
+	width: 379px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -181,8 +227,8 @@ input[type="submit"]{
 }
 
 footer nav ul {
-	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	width: 100%;
+	height: 60px;
 }
 

@@ -32,11 +32,11 @@ function displayWorks(works) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const works = await fetchWorks(); // récupère tous les projets
-  const categories = await fetchCategories(); // récupère les catégories
+  const works = await fetchWorks();
+  const categories = await fetchCategories();
 
   if (works && categories) {
-    displayWorks(works); // affiche tous les projets au départ
-    displayCategories(categories, works); // crée les boutons et active le tri
+    displayWorks(works);
+    displayCategories(categories, works);
   }
 });

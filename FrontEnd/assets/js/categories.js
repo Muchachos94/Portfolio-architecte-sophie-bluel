@@ -18,6 +18,9 @@ async function fetchCategories() {
     buttonAll.textContent = "Tous";
     buttonAll.classList.add("active"); // "Tous" est sélectionné par défaut au chargement de la page
     buttonAll.addEventListener("click", () => {
+      const allButtons = document.querySelectorAll("#categories button");
+      allButtons.forEach(btn => btn.classList.remove("active"));
+      buttonAll.classList.add("active");
       displayWorks(works);
     });
     list.appendChild(buttonAll);
@@ -27,6 +30,9 @@ async function fetchCategories() {
         button.textContent = category.name;
     
         button.addEventListener("click", () => {
+          const allButtons = document.querySelectorAll("#categories button");
+          allButtons.forEach(btn => btn.classList.remove("active"));
+          button.classList.add("active");
           const filteredWorks = works.filter(work => work.category.id === category.id);
           displayWorks(filteredWorks);
         });
