@@ -36,7 +36,6 @@ async function fetchCategories() {
           const filteredWorks = works.filter(work => work.category.id === category.id);
           displayWorks(filteredWorks);
         });
-    
         list.appendChild(button);
       });
   }
