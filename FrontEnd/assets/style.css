@@ -60,10 +60,7 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
-}
-section {
-	margin: 60px 0
+	margin: 50px -20px;
 }
 
 h1{
@@ -93,7 +90,7 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-	gap: 25px;
+	gap: 20px;
 	cursor: pointer;
 	margin-right: 40px;
 }
@@ -129,20 +126,17 @@ li:hover {
 #introduction {
 	display: flex;
 	align-items: center;
-	padding: 42px;
+	padding: 90px;
+	gap: 60px;
 }
 #introduction figure {
-	flex: 1
-}
-#introduction img {
-	display: block;
-	margin: auto;
-	width: 80%;
+width: 474px;
 }
 
-#introduction article {
-	flex: 1
+#introduction img {
+	width: 100%;
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -151,11 +145,10 @@ li:hover {
 	margin-bottom: 1.4em;
 	width: 404px;
 	color: #3D3D3D;
+	line-height: normal;
 }
 #portfolio h2 {
-	text-align: center;
-	margin-bottom: 0.8em;
-}
+	text-align: center;}
 
 figcaption {
 	color: #3D3D3D;
@@ -168,18 +161,30 @@ figcaption {
 	justify-content: center;
 	gap: 10px;
 	margin-bottom: 50px;
+	margin-top: 15px;
 }
 
 #categories button {
-	padding: 7px 20px;
 	border: 1px solid #1D6154;
-	border-radius: 20px;
 	background-color: #fffef8;
 	cursor: pointer;
-	font-family: 'Syne';
 	font-size: 16px;
 	color: #1D6154;
+	white-space: nowrap;
 }
+  
+  /* Boutons spécifiques : "Tous" et "Objets" */
+  #categories button:first-child,
+  #categories button:nth-child(2) {
+	width: 100px;
+  }
+  
+  /* Autres boutons : ajustement minimal */
+  #categories button:not(:first-child):not(:nth-child(2)) {
+	width: min-content;
+	padding: 8px 10px;
+  }
+
 
 #categories button.active {
 	background-color: #1D6154;
@@ -193,6 +198,7 @@ figcaption {
 	grid-column-gap: 20px;
 	grid-row-gap: 15px;
 	padding: 0px 90px 0px 90px;
+	margin-bottom: 60px;
 }
 
 .gallery img {
@@ -246,9 +252,7 @@ input[type="submit"]{
 
 footer {
 	position: absolute;
-	left: 50%;
 	right: 50%;
-	margin-left: -50vw;
 	margin-right: -50vw;
 	width: 100vw;
 	background-color: white;
@@ -327,13 +331,32 @@ input[type="submit"], button {
 	margin-top: 20px;
   }
 
-  .edit-container {
+  .portfolio-header {
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	gap: 25px;
+  }
+
+  .edit-container {
+	display: flex;
 	gap: 8px;
 	cursor: pointer;
   }
-  
-  .edit-container i {
+
+  .edit-banner {
+	position: relative;
+	left: 50%;
+	margin-left: -50vw;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #000000;
+	color: white;
+	height: 59px;
+	gap: 8px;
+	cursor: pointer;
 	font-size: 16px;
   }
+

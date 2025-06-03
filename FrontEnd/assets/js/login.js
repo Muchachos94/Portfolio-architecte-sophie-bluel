@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         // Cas où l'authentification a réussi
         const data = await response.json();
-        localStorage.setItem("token", data.token); // 🔐 On stocke le token
+        localStorage.setItem("token", data.token);
         console.log("Connexion réussie, redirection...");
-        window.location.href = "index.html"; // Redirection vers la page d'accueil
+        window.location.href = "index.html"; 
+
       } else {
-        // Cas où l'authentification a échoué (email ou mdp incorrect)
         console.error("Erreur lors de la connexion : Email ou mot de passe incorrect.");
         showError("Identifiants incorrects. Veuillez réessayer.");
       }
@@ -41,14 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showError(message) {
     let errorMsg = document.getElementById("error-message");
-    const forgotPassword = document.getElementById("forgot-password"); // 🎯 On cible le lien
+    const forgotPassword = document.getElementById("forgot-password");
   
     if (!errorMsg) {
       errorMsg = document.createElement("p");
       errorMsg.id = "error-message";
-      errorMsg.classList.add("error-message"); // 🆕 On garde la classe CSS
-  
-      // 👇 On insère le message d'erreur APRÈS le lien "Mot de passe oublié"
+      errorMsg.classList.add("error-message"); 
+
       forgotPassword.after(errorMsg);
     }
     errorMsg.textContent = message;
