@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       } else {
         console.error("Erreur lors de la connexion : Email ou mot de passe incorrect.");
-        showError("Identifiants incorrects. Veuillez réessayer.");
+        showError("Erreur dans l’identifiant ou le mot de passe.");
       }
     } catch (error) {
       // Cas où une erreur technique survient (ex: serveur non disponible)

@@ -21,7 +21,7 @@ async function fetchCategories() {
       const allButtons = document.querySelectorAll("#categories button");
       allButtons.forEach(btn => btn.classList.remove("active"));
       buttonAll.classList.add("active");
-      displayWorks(works);
+      displayWorks(works, "gallery");
     });
     list.appendChild(buttonAll);
   
@@ -34,7 +34,7 @@ async function fetchCategories() {
           allButtons.forEach(btn => btn.classList.remove("active"));
           button.classList.add("active");
           const filteredWorks = works.filter(work => work.category.id === category.id);
-          displayWorks(filteredWorks);
+          displayWorks(filteredWorks, "gallery");
         });
         list.appendChild(button);
       });

@@ -80,6 +80,10 @@ h1 > span {
 ;
 }
 
+img {
+	cursor: pointer;
+}
+
 h2{
 	font-family: 'Syne';
 	font-weight: 700;
@@ -92,7 +96,6 @@ nav ul {
 	list-style-type: none;
 	gap: 20px;
 	cursor: pointer;
-	margin-right: 40px;
 }
 nav li {
 	padding: 0 10px;
@@ -127,14 +130,14 @@ li:hover {
 	display: flex;
 	align-items: center;
 	padding: 90px;
-	gap: 60px;
+	gap: 90px;
 }
 #introduction figure {
 width: 474px;
 }
 
 #introduction img {
-	width: 100%;
+	width: 105%;
 }
 
 #introduction h2 {
@@ -160,7 +163,7 @@ figcaption {
 	display: flex;
 	justify-content: center;
 	gap: 10px;
-	margin-bottom: 50px;
+	margin-bottom: 60px;
 	margin-top: 15px;
 }
 
@@ -192,7 +195,6 @@ figcaption {
 }
 
 .gallery {
-	width: 78%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
@@ -237,6 +239,8 @@ form input#envoyer {
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	padding: 18px;
+    color: #444444;
 }
 
 input[type="submit"]{
@@ -299,9 +303,11 @@ footer nav ul li {
     width: 379px;
     border: none;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-    padding: 10px;
+    padding: 18px;
     box-sizing: border-box;
 	margin: auto;
+	font-family: Work Sans;
+	color: #444444;
 }
 input[type="submit"], button {
     font-family: 'Syne';
@@ -331,17 +337,38 @@ input[type="submit"], button {
 	margin-top: 20px;
   }
 
+  
   .portfolio-header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 25px;
+	gap: 30px;
+  }
+
+  .portfolio-header.logged-in {
+	margin-left: 110px;
+  }
+
+  #categories.hidden {
+	margin-bottom: 40px;
+	height: 40px;
+	visibility: hidden;
   }
 
   .edit-container {
 	display: flex;
 	gap: 8px;
 	cursor: pointer;
+	position: relative;
+    top: 2px;
+  }
+
+  .d-none {
+	display: none !important;
+  }
+
+  .d-block {
+	display: block;
   }
 
   .edit-banner {
@@ -360,3 +387,230 @@ input[type="submit"], button {
 	font-size: 16px;
   }
 
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  /* Fenêtre modale */
+  .modal {
+	background: white;
+	border-radius: 10px;
+	padding: 30px;
+	max-width: 630px;
+	width: 90%;
+	max-height: 90vh;
+	overflow-y: auto;
+	position: relative;
+	
+  }
+
+  body.modal-open {
+	overflow: hidden;
+	width: 100%;
+  }
+  
+ /* Croix de fermeture */
+	.modal-close {
+		position: absolute;
+		top: 20px;
+		right: 25px;
+		font-size: 26px;
+		cursor: pointer;
+	  }
+
+	#return-to-gallery {
+		position: absolute;
+		top: 20px;
+		left: 25px;
+		font-size: 20px;
+		cursor: pointer;
+	}
+
+  /* Titre */
+  .modal-content {
+	text-align: center;
+	font-size: 26px;
+	margin-top: 30px;
+	margin-bottom: 25px;
+  }
+  
+  .modal-content h2 {
+	color: black;
+	font-family: 'Work Sans';
+	font-weight: 400;
+	font-size: 26px;
+  }
+
+  /* Galerie des images */
+  .modal-gallery {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 30px 10px;
+    margin-bottom: 60px;
+    margin-top: 50px;
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+  
+  .modal-gallery figure {
+	position: relative;
+  }
+  
+  .modal-gallery img {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 2px;
+  }
+  
+  /* Icône poubelle */
+  .modal-gallery .delete-icon {
+	position: absolute;
+	top: 6px;
+	right: 5px;
+	background: black;
+	color: white;
+	font-size: 10px;
+	padding: 4px;
+	border-radius: 2px;
+	cursor: pointer;
+  }
+  
+  /* Bouton principal */
+  .modal-content button {
+	margin: 0 auto;
+	padding: 12px 24px;
+	font-size: 14px;
+	width: 240px;
+  }
+  
+  /* Ligne de séparation */
+  .modal-content hr {
+	margin: 40px auto;
+	border: none;
+	border-top: 1px solid #ccc;
+	width: 75%;
+  }
+
+  #validate-photo-btn.inactive {
+	background-color: #A7A7A7;
+	cursor: default;
+  }
+
+  .modal-gallery figcaption {
+	display: none;
+  }
+/* Conteneur général du formulaire */
+.modal-add-photo form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+#titre-modal {
+	font-size: 14px;
+	text-align: left;
+	align-self: flex-start;
+	margin-left: 78px;
+	margin-top: 20px;
+}
+
+/* Zone d'upload */
+.upload-zone {
+  width: 100%;
+  max-width: 474px;
+  height: 170px;
+  background-color: #e8f1f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  position: relative;
+  gap: 8px;
+}
+
+.upload-zone .upload-placeholder-icon {
+  font-size: 70px;
+  color: #B9C5CC;
+}
+
+.upload-label {
+  background-color: #cbd6dc;
+  color: #306685;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.upload-zone p {
+  font-size: 10px;
+  color: #444;
+}
+
+#preview-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Champs titre et menu déroulant */
+.modal-add-photo input[type="text"],
+.custom-select {
+  width: 474px;
+  height: 50px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border: none;
+  font-size: 14px;
+  background-color: white;
+}
+
+/* Custom dropdown */
+.custom-select {
+	position: relative;
+  cursor: pointer;
+  color: #444444;
+}
+
+.select-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 30px 0 17px;
+}
+
+.select-trigger i {
+  color: #6c6c6c;
+}
+
+.options {
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-option {
+  padding: 7px;
+  cursor: pointer;
+  text-align: left;
+  padding-left: 17px;
+}
+
+.custom-option:hover {
+  background-color: #f0f0f0;
+}
