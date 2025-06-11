@@ -503,7 +503,6 @@ input[type="submit"], button {
 
   #validate-photo-btn.inactive {
 	background-color: #A7A7A7;
-	cursor: default;
   }
 
   .modal-gallery figcaption {
@@ -614,3 +613,13 @@ input[type="submit"], button {
 .custom-option:hover {
   background-color: #f0f0f0;
 }
+#form-error-message {
+	color: #721c24;
+	background-color: #f8d7da;
+	border: 1px solid #f5c6cb;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 14px;
+	width: 72%;
+	margin-top: -35px;
+  }

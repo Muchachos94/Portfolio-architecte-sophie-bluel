@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // Réinitialisation du bouton Valider
       validateBtn.classList.add("inactive");
-      validateBtn.disabled = true;
+      validateBtn.disabled = false;
     });
 
 
@@ -222,7 +222,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         validateBtn.disabled = false;
       } else {
         validateBtn.classList.add("inactive");
-        validateBtn.disabled = true;
+        validateBtn.disabled = false;
+      }
+      // Ajout du bloc pour masquer le message d'erreur si le bouton devient actif
+      const errorMessage = document.getElementById("form-error-message");
+      if (!validateBtn.classList.contains("inactive") && errorMessage) {
+        errorMessage.classList.add("d-none");
       }
     }
 
@@ -235,7 +240,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Initialiser l'état du bouton "Valider"
     validateBtn.classList.add("inactive");
-    validateBtn.disabled = true;
+    validateBtn.disabled = false;
 
     // Prévisualisation de l’image
     const previewImage = document.getElementById("preview-image");
@@ -263,10 +268,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     validateBtn.addEventListener("click", async (e) => {
       e.preventDefault();
 
+      // Vérification des champs requis
+      const hasImage = imageInput.files.length > 0;
+      const hasTitle = titleInput.value.trim() !== "";
+      const hasCategory = customSelect.dataset.selectedId !== undefined;
+
+      const errorMessage = document.getElementById("form-error-message");
+      if (!hasImage || !hasTitle || !hasCategory) {
+        if (errorMessage) {
+          errorMessage.classList.remove("d-none");
+        }
+        return;
+      } else {
+        if (errorMessage) {
+          errorMessage.classList.add("d-none");
+        }
+      }
+
       const formData = new FormData();
       formData.append("image", imageInput.files[0]);
       formData.append("title", titleInput.value);
-      formData.append("category", customSelect.dataset.selectedId);
+      formData.append("category", parseInt(customSelect.dataset.selectedId, 10));
 
       try {
         const response = await fetch("http://localhost:5678/api/works", {
@@ -283,18 +305,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const newWork = await response.json();
 
-        // Mise à jour de la galerie sans refaire un fetch complet
         works.push(newWork);
         displayWorks(works, "gallery");
         displayWorks(works, "modal-gallery", true);
 
-        // Retour à la vue galerie de la modale
         addPhotoView.classList.add("d-none");
         galleryView.classList.remove("d-none");
         modalOverlay.classList.add("d-none");
         document.body.classList.remove("modal-open");
 
-        // Réinitialisation du formulaire d’ajout
         imageInput.value = "";
         titleInput.value = "";
         customSelect.querySelector(".selected").textContent = "";
@@ -305,10 +324,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         uploadLabel.classList.remove("d-none");
         uploadInfo.classList.remove("d-none");
 
-        // Réinitialisation du bouton Valider
         validateBtn.classList.add("inactive");
-        validateBtn.disabled = true;
-
+        validateBtn.disabled = false;
       } catch (error) {
         console.error(error);
         alert("Une erreur est survenue lors de l'ajout du projet.");
