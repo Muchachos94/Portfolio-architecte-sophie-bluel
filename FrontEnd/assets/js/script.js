@@ -83,7 +83,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const loginLink = document.getElementById("login-link");  
     if (loginLink) {
       if (token) {
-        // L'utilisateur est connecté
         loginLink.textContent = "logout";
         loginLink.href = "#";
         loginLink.addEventListener("click", (e) => {
@@ -92,7 +91,6 @@ document.addEventListener("DOMContentLoaded", async () => {
           window.location.href = "index.html";
         });
       } else {
-        // L'utilisateur est déconnecté
         loginLink.textContent = "login";
         loginLink.href = "login.html";
       }
@@ -118,7 +116,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     editBanner.classList.remove("d-none");
 
 
-    // Ajout des gestionnaires de clic pour ouvrir la modale
+
     editContainer.addEventListener("click", openModal);
     editBanner.addEventListener("click", openModal);
   
@@ -127,19 +125,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   const modalOverlay = document.querySelector(".modal-overlay");
   const modalClose = document.querySelector(".modal-close");
   
-  // Fonction pour ouvrir la modale
+
   function openModal() {
     modalOverlay.classList.remove("d-none");
     document.body.classList.add("modal-open");
   }
   
-  // Fonction pour fermer la modale
+
   function closeModal() {
     modalOverlay.classList.add("d-none");
     document.body.classList.remove("modal-open");
   }
   
-  // Gestionnaires d'événements
   modalClose.addEventListener("click", closeModal);
   modalOverlay.addEventListener("click", (e) => {
     if (e.target === modalOverlay) closeModal();
@@ -179,7 +176,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
 
-    // Gestion du menu déroulant custom des catégories
     const customSelect = document.getElementById("category-select");
     const selectTrigger = customSelect ? customSelect.querySelector(".select-trigger") : null;
     const optionsContainer = document.getElementById("category-options");

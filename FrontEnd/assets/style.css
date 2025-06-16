@@ -182,7 +182,7 @@ figcaption {
 	width: 100px;
   }
   
-  /* Autres boutons : ajustement minimal */
+
   #categories button:not(:first-child):not(:nth-child(2)) {
 	width: min-content;
 	padding: 8px 10px;
@@ -400,7 +400,6 @@ input[type="submit"], button {
 	align-items: center;
   }
   
-  /* Fenêtre modale */
   .modal {
 	background: white;
 	border-radius: 10px;
@@ -418,7 +417,6 @@ input[type="submit"], button {
 	width: 100%;
   }
   
- /* Croix de fermeture */
 	.modal-close {
 		position: absolute;
 		top: 20px;
@@ -435,7 +433,6 @@ input[type="submit"], button {
 		cursor: pointer;
 	}
 
-  /* Titre */
   .modal-content {
 	text-align: center;
 	font-size: 26px;
@@ -450,7 +447,6 @@ input[type="submit"], button {
 	font-size: 26px;
   }
 
-  /* Galerie des images */
   .modal-gallery {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
@@ -472,7 +468,6 @@ input[type="submit"], button {
 	border-radius: 2px;
   }
   
-  /* Icône poubelle */
   .modal-gallery .delete-icon {
 	position: absolute;
 	top: 6px;
@@ -485,7 +480,6 @@ input[type="submit"], button {
 	cursor: pointer;
   }
   
-  /* Bouton principal */
   .modal-content button {
 	margin: 0 auto;
 	padding: 12px 24px;
@@ -493,7 +487,6 @@ input[type="submit"], button {
 	width: 240px;
   }
   
-  /* Ligne de séparation */
   .modal-content hr {
 	margin: 40px auto;
 	border: none;
@@ -508,7 +501,7 @@ input[type="submit"], button {
   .modal-gallery figcaption {
 	display: none;
   }
-/* Conteneur général du formulaire */
+
 .modal-add-photo form {
   display: flex;
   flex-direction: column;
@@ -516,8 +509,7 @@ input[type="submit"], button {
   gap: 10px;
   margin-top: 30px;
 }
-
-#titre-modal {
+#label-title, #label-category {
 	font-size: 14px;
 	text-align: left;
 	align-self: flex-start;
@@ -525,7 +517,6 @@ input[type="submit"], button {
 	margin-top: 20px;
 }
 
-/* Zone d'upload */
 .upload-zone {
   width: 100%;
   max-width: 474px;
@@ -565,7 +556,6 @@ input[type="submit"], button {
   object-fit: contain;
 }
 
-/* Champs titre et menu déroulant */
 .modal-add-photo input[type="text"],
 .custom-select {
   width: 474px;
@@ -576,7 +566,6 @@ input[type="submit"], button {
   background-color: white;
 }
 
-/* Custom dropdown */
 .custom-select {
 	position: relative;
   cursor: pointer;
@@ -616,10 +605,9 @@ input[type="submit"], button {
 #form-error-message {
 	color: #721c24;
 	background-color: #f8d7da;
-	border: 1px solid #f5c6cb;
-	border-radius: 5px;
-	padding: 10px;
+	border-radius: 20px;
+	padding: 14px;
 	font-size: 14px;
-	width: 72%;
+	width: 85%;
 	margin-top: -35px;
   }

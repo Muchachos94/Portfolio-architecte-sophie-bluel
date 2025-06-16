@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
         showError("Erreur dans l’identifiant ou le mot de passe.");
       }
     } catch (error) {
-      // Cas où une erreur technique survient (ex: serveur non disponible)
       console.error("Erreur technique :", error);
       showError("Une erreur est survenue. Réessayez plus tard.");
     }
